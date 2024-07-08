@@ -107,29 +107,33 @@ const DataStoreSynch: React.FC = () => {
       )}
 
       <Flex direction="row">
-        <Flex direction="column" alignItems="flex-start">
-          <TextField
-            label="Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <TextAreaField
-            label="Description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-          <Button variation="primary" onClick={addTodo}>Add Todo</Button>
-        </Flex>
+        <div className='container'>
+          <Flex direction="column" alignItems="flex-start" className='container'>
+            <TextField
+              label="Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <TextAreaField
+              label="Description"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            />
+            <Button variation="primary" onClick={addTodo}>Add Todo</Button>
+          </Flex>
+        </div>
         <Collection items={todos} type="grid">
           {(todo) => (
-            <Card key={todo.id}>
-              <Heading level={3}>{todo.name}</Heading>
-              <p>{todo.description}</p>
-              <Flex>
-                <Button variation="primary" colorTheme='error' onClick={() => deleteTodo(todo.id)}>Delete</Button>
-                <Button variation="primary">Update</Button>
-              </Flex>
-            </Card>
+            <div className='todo-card'>
+              <Card variation="outlined" key={todo.id}>
+                <Heading level={3}>{todo.name}</Heading>
+                <p>{todo.description}</p>
+                <Flex>
+                  <Button variation="primary" colorTheme='error' onClick={() => deleteTodo(todo.id)}>Delete</Button>
+                  <Button variation="primary">Update</Button>
+                </Flex>
+              </Card>
+            </div>
           )}
         </Collection>
       </Flex>
