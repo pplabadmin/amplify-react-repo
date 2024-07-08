@@ -131,8 +131,8 @@ const DataStoreSynch: React.FC = () => {
         </div>
         <Collection items={todos} type="grid">
           {(todo) => (
-            <div className='todo-card'>
-              <Card variation="outlined" key={todo.id}>
+            <div className='todo-card' key={todo.id}>
+              <Card variation="outlined">
                 <Heading level={3}>{todo.name}</Heading>
                 <p>{todo.description}</p>
                 <Flex>

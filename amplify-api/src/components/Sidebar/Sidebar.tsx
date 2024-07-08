@@ -9,7 +9,6 @@ const Sidebar: React.FC = () => {
       <ul>
         <li><Link to="/">DataStore Sync Demo</Link></li>
         <li><Link to="/graphql">GraphQL Demo</Link></li>
-        <li><Link to="/rest">REST Demo</Link></li>
       </ul>
     </div>
   );
