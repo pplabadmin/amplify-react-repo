@@ -9,9 +9,6 @@ const DataStoreSynch: React.FC = () => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [message, setMessage] = useState<{ text: string, type: 'info' | 'success' | 'error' | 'warning' } | null>(null);
-  /* 
-  const [editingName, setEditingName] = useState('');
-  const [editingDescription, setEditingDescription] = useState(''); */
 
   const addTodo = async () => {
     if (name.trim() === '') return;
@@ -47,49 +44,6 @@ const DataStoreSynch: React.FC = () => {
       setMessage({ text: 'Todo deleted successfully!', type: 'success' });
     }
   };
-
-  /*  
- 
-   
- 
-   
- 
-   const startEditing = (todo: Todo) => {
-     setEditingId(todo.id);
-     setEditingName(todo.name);
-     setEditingDescription(todo.description || '');
-   };
- 
-   const saveEdit = async () => {
-     if (editingId) {
-       const updatedTodos = todos.map((todo) =>
-         todo.id === editingId ? { ...todo, name: editingName, description: editingDescription } : todo
-       );
-       setTodos(updatedTodos);
- 
-       const todoToUpdate = await DataStore.query(Todo, editingId);
-       if (todoToUpdate) {
-         await DataStore.save(
-           Todo.copyOf(todoToUpdate, updated => {
-             updated.name = editingName;
-             updated.description = editingDescription;
-           })
-         );
-         setMessage({ text: 'Todo updated successfully!', type: 'success' });
-       }
- 
-       setEditingId(null);
-       setEditingName('');
-       setEditingDescription('');
-     }
-   };
- 
-   const cancelEdit = () => {
-     setEditingId(null);
-     setEditingName('');
-     setEditingDescription('');
-   };
-   }; */
 
   return (
     <View>
